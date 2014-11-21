@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="C:\Android\AndroidStudioProjects\Githublist2\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.0-d461cac8859d9c07eb5dec855ea3d24aeefd9b19.jar"
+        jar="C:\Android\android-studio\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.0\support-annotations-21.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="1a578b9607b36266c63d43a4fa0ab5664dbe911e"/>
+    <item
+        dex="C:\Android\AndroidStudioProjects\Githublist2\app\build\intermediates\pre-dexed\debug\classes-ae801340f46501a80c91bca05ba401adff534625.jar"
+        jar="C:\Android\AndroidStudioProjects\Githublist2\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.0\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="686344a780033e4ba22b926cd225f8d4941247e6"/>
+    <item
+        dex="C:\Android\AndroidStudioProjects\Githublist2\app\build\intermediates\pre-dexed\debug\classes-e184ed42e7e739ac7ca5f52e1f63bc1516f03b2c.jar"
+        jar="C:\Android\AndroidStudioProjects\Githublist2\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.0\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="95fd37732ec852e99f07eeb516a3650172f1d136"/>
+    <item
+        dex="C:\Android\AndroidStudioProjects\Githublist2\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.0-ce009a037fcc54f16088aa94a3fe281e6f270d3c.jar"
+        jar="C:\Android\AndroidStudioProjects\Githublist2\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.0\libs\internal_impl-21.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="1609e6d42d0480b0f4188e2c29f75388fa12a8f0"/>
+
+</pre-dex-items>
