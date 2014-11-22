@@ -254,10 +254,11 @@ public class MainActivity extends ActionBarActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == 1) {
+        Log.d("XXX", "Request:"+requestCode+" result:"+resultCode);
+        if(requestCode == 111 && resultCode == RESULT_OK) {
             Cursor cursor = db.rawQuery("select * from "+DBPreferences.FAVORITES_TABLE_NAME, null);
-            Log.d("XXX", "cnt fav:"+cursor.getCount());
+            Log.d("XXX", "!!!!!!cnt fav:"+cursor.getCount());
+            mainArrayAdapter.notifyDataSetChanged();
             leftArrayList.clear();
             if(cursor.moveToFirst()) {
                 do {
@@ -266,10 +267,12 @@ public class MainActivity extends ActionBarActivity {
                             cursor.getString(cursor.getColumnIndex(DBPreferences.FAVORITES_USER_URL_COLUMN)), null));
                     leftArrayAdapter.notifyDataSetChanged();
                 } while (cursor.moveToNext());
+                leftArrayAdapter.notifyDataSetChanged();
                 updateAvatarsThread = new UpdateAvatars();
                 updateAvatarsThread.execute();
             }
         }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     @Override
@@ -301,6 +304,8 @@ public class MainActivity extends ActionBarActivity {
         });
 
         pb = (ProgressBar) findViewById(R.id.content_loading);
+        pb.setIndeterminate(true);
+        drawer.setVisibility(View.GONE);
         pbLoadAvatar = (ProgressBar) findViewById(R.id.progressBarLoadingAvatar);
         pbLoadAvatar.setProgress(0);
         pbLoadAvatar.setVisibility(View.GONE);
@@ -318,7 +323,7 @@ public class MainActivity extends ActionBarActivity {
                         break;
                     case 2:
                         pb.setVisibility(View.GONE);
-                        mainList.setVisibility(View.VISIBLE);
+                        drawer.setVisibility(View.VISIBLE);
                         break;
                     case 3:
                         int i = bundle.getInt("deleteFavorite", -1);
@@ -362,7 +367,7 @@ public class MainActivity extends ActionBarActivity {
                 Intent intent = new Intent(context, Detail.class);
                 intent.putExtra("login", leftArrayList.get(position - 1).getUserLogin());
                 intent.putExtra("url", leftArrayList.get(position - 1).getUserUrl());
-                startActivityForResult(intent, 1);
+                startActivityForResult(intent, 111);
             }
         });
         leftList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
@@ -406,14 +411,13 @@ public class MainActivity extends ActionBarActivity {
         footer.setPadding(0, 0, 0, headerHeight);
 
         mainList.setOnTouchListener(new MyOnTouchListener());
-        mainList.setVisibility(View.GONE);
         mainList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(context, Detail.class);
                 intent.putExtra("login", mainArrayList.get(position-1).getUserLogin());
                 intent.putExtra("url", mainArrayList.get(position-1).getUserUrl());
-                startActivityForResult(intent, 1);
+                startActivityForResult(intent, 111);
             }
         });
         mainArrayAdapter = new MainArrayAdapter(context, R.id.main_list, mainArrayList);
@@ -586,16 +590,16 @@ public class MainActivity extends ActionBarActivity {
 
         @Override
         protected void onPostExecute(Void aVoid) {
-            super.onPostExecute(aVoid);
             pbLoadAvatar.setProgress(0);
             pbLoadAvatar.setVisibility(View.GONE);
+            super.onPostExecute(aVoid);
         }
 
         @Override
         protected void onCancelled() {
-            super.onCancelled();
             pbLoadAvatar.setProgress(0);
             pbLoadAvatar.setVisibility(View.GONE);
+            super.onCancelled();
         }
 
         @Override

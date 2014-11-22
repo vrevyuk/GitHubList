@@ -14,7 +14,6 @@
         android:layout_height="wrap_content">
         <ImageView
             android:id="@+id/avatar"
-            android:src="@drawable/githublogo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <LinearLayout
@@ -71,7 +70,7 @@
         </LinearLayout>
         <ImageButton
             android:id="@+id/fav_on_off"
-            android:src="@android:drawable/btn_star_big_off"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>

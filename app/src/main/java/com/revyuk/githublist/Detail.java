@@ -23,6 +23,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -55,6 +56,7 @@ public class Detail extends Activity {
     My_Adapter my_adapter;
     DBPreferences dbPreferences;
     SQLiteDatabase db;
+    boolean editedFlag = false;
 
     class ListRepos {
         private String repoName;
@@ -99,6 +101,19 @@ public class Detail extends Activity {
     }
 
     @Override
+    public void onBackPressed() {
+        Log.d("XXX", "obBackpressed"+editedFlag);
+        Intent intent = getIntent();
+        if(editedFlag) {
+            setResult(RESULT_OK, intent);
+        } else {
+            setResult(RESULT_CANCELED, intent);
+        }
+        finish();
+        //super.onBackPressed();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detail_activity);
@@ -116,6 +131,7 @@ public class Detail extends Activity {
         following = (TextView) findViewById(R.id.following);
         email = (TextView) findViewById(R.id.email);
         fav = (ImageButton) findViewById(R.id.fav_on_off);
+        fav.setVisibility(View.GONE);
 
         handler = new Handler(new Handler.Callback() {
             @Override
@@ -179,17 +195,19 @@ public class Detail extends Activity {
         db = dbPreferences.getWritableDatabase();
         Cursor cursor = db.rawQuery("select * from "+DBPreferences.FAVORITES_TABLE_NAME+" where "
                 +DBPreferences.FAVORITES_LOGIN_COLUMN+" = \""+login+"\"", null);
-        Log.d("XXX", "Query:"+"select * from "+DBPreferences.FAVORITES_TABLE_NAME+" where "
-                +DBPreferences.FAVORITES_LOGIN_COLUMN+" = \""+login+"\"");
+        Log.d("XXX", "Query:" + "select * from " + DBPreferences.FAVORITES_TABLE_NAME + " where "
+                + DBPreferences.FAVORITES_LOGIN_COLUMN + " = \"" + login + "\"");
         if(cursor.getCount()==0) {
             fav.setImageResource(android.R.drawable.btn_star_big_off);
         } else {
             fav.setImageResource(android.R.drawable.btn_star_big_on);
         }
+        fav.setVisibility(View.VISIBLE);
 
         fav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                editedFlag = true;
                 int delete = db.delete(DBPreferences.FAVORITES_TABLE_NAME,
                         DBPreferences.FAVORITES_LOGIN_COLUMN+" = \""+login+"\"", null);
                 Log.d("XXX", "delete:"+delete);
@@ -283,22 +301,3 @@ public class Detail extends Activity {
         thread.start();
     }
 }
-
-/*
-                //if(!db.isReadOnly()) {
-                if(false) {
-                  Cursor cursor = db.rawQuery("select * from "+DBPreferences.FAVORITES_TABLE_NAME+
-                                " where "+DBPreferences.FAVORITES_LOGIN_COLUMN+" = \""+
-                          mainArrayList.get(position).getUserLogin()+"\"",null);
-                  if(cursor.getCount() == 0) {
-                      String query = "insert into "+DBPreferences.FAVORITES_TABLE_NAME+" values (null, \""+
-                              mainArrayList.get(position).getUserLogin()+"\", "+
-                              "\""+mainArrayList.get(position).getAvatarUrl()+"\", "+
-                              "\""+mainArrayList.get(position).getUserUrl()+"\");";
-                      db.execSQL(query);
-                      leftArrayList.add(mainArrayList.get(position));
-                      leftArrayAdapter.notifyDataSetChanged();
-                  }
-                }
-                mainArrayAdapter.notifyDataSetChanged();
-*/
