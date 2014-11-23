@@ -39,21 +39,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: com.revyuk.githublist" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b45b31c6-56e7-4787-9665-2e7f9b2fcf34" name="Default" comment=":tada: Added .gitattributes &amp; .gitignore files&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GitHubList.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/revyuk/githublist/Detail.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/revyuk/githublist/Detail.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/revyuk/githublist/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/revyuk/githublist/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_21_0_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_21_0_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/detail_activity.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/detail_activity.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/mainactivity.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/mainactivity.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_21_0_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_v4_21_0_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="b45b31c6-56e7-4787-9665-2e7f9b2fcf34" name="Default" comment=":tada: Added .gitattributes &amp; .gitignore files&#10;" />
     <ignored path="Githublist.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -1066,6 +1052,7 @@
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="vedroid" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
+    <property name="FullScreen" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
